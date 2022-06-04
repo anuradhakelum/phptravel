@@ -17,12 +17,6 @@ public class BaseTest {
         driver.navigate().to("https://phptravels.com/demo/");
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @AfterTest

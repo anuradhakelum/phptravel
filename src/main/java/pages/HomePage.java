@@ -18,10 +18,13 @@ public class HomePage {
     public CustomerFronEnd_Page customerFrontEnd_Click(){
         String parent_Window = driver.getWindowHandle();
         driver.findElement(customerFrontEndLogin_Button).click();
+
         Set<String> windows = driver.getWindowHandles();
         Iterator<String> iterator = windows.iterator();
-        if(iterator.hasNext()){
-            iterator.next();
+        while (iterator.hasNext()){
+            String child_window = iterator.next();
+            driver.switchTo().window(child_window);
+            System.out.println(driver.getTitle());
         }
         return customerFronEnd_page = new CustomerFronEnd_Page(driver);
     }
